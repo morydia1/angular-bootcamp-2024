@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faker } from "@faker-js/faker";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'typing-challenge';
+
+  random_text = faker.lorem.sentence({min:3, max:5});
+  entredText = '';
+
+
+  onInput(event:any){
+    this.entredText = event.target.value;
+  }
+
+
 }
