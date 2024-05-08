@@ -1,21 +1,73 @@
 <div class="container">
-  <div class="columns is-centered">
-    <div class="box column is-one-third">
-      <h1 class="title has-text-centered">Typing Challenge</h1>
-      <p class="has-text-centered">
-        <span *ngFor="let letter of random_text.split(''); let i=index;"
-          [class]="! entredText.charAt(i) ? 'has-text-black' : entredText.charAt(i)==random_text.charAt(i) ? 'has-text-primary' : 'has-text-danger'"
-        >{{ letter }}</span>
-      </p>
+  <h3>Payment Form</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label>Payee name</label>
+      <input class="form-control" (input)="onNameChange($event)">
+    </div>
 
-      <div class="field">
-        <input type="text" class="input" (input)="onInput($event)" />
-      </div>
-
-      <div *ngIf="entredText == random_text" class="box has-text-centered">
-        <h1 class="title">Success !</h1>
-      </div>
-    
+    <div class="col">
+      <label><b>Name</b></label>
+       <div>
+        {{name | titlecase}}
+       </div> 
     </div>
   </div>
+
+    <div class="row">
+      <div class="form-group col">
+        <label>Payment Date</label>
+        <input type="date" class="form-control" (input)="onDateChange($event)">
+      </div>
+
+      <div class="col">
+        <label><b>Payment Date</b></label>
+         <div>
+          {{date | date:'fullDate'}}
+         </div> 
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col">
+      <label>Payment Amount</label>
+      <input type="number" class="form-control" (input)="onAmountChange($event)">
+    </div>
+
+    <div class="col">
+      <label><b>Payment Amount</b></label>
+       <div>
+        {{amount | currency:' XOF'}}
+       </div> 
+    </div>
+</div>
+
+<div class="row">
+  <div class="form-group col">
+    <label>Height</label>
+    <input type="number" class="form-control" (input)="onHeightChange($event)">
+  </div>
+
+  <div class="col">
+    <label><b>Height</b></label>
+     <div>
+      {{height | number:'1.0-2'}}
+     </div> 
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col">
+    <label>Miles</label>
+    <input type="number" class="form-control" (input)="onMileChange($event)">
+  </div>
+
+  <div class="col">
+    <label><b>Kilometers</b></label>
+     <div>
+      {{miles | convert: 'cm' | number:'1.0-3'}}
+     </div> 
+  </div>
+</div>
+
 </div>
