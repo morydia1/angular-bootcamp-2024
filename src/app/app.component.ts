@@ -8,13 +8,5 @@ import { faker } from "@faker-js/faker";
 })
 export class AppComponent {
 
-  random_text = faker.lorem.sentence({min:3, max:5});
-  entredText = '';
-
-
-  onInput(event:any){
-    this.entredText = event.target.value;
-  }
-
 
 }
