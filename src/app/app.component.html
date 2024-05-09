@@ -5,7 +5,7 @@
         <a (click)="currentPage = currentPage - 1" class="page-link">Prev</a>
       </li>
 
-      <ng-container *ngFor="let page of images; let i=index;">
+      <ng-container *appTimes="images.length; let i=index;">
         <li *ngIf="checkWindows(i)"
         class="page-item"
         [appClassName]="{ active: i === currentPage }">
@@ -40,3 +40,7 @@
     <h4> {{ images[currentPage].title }} </h4>
     <img [src]="images[currentPage].url" alt="">
   </div>
+
+  <ul *appTimes="6">
+    <li>Hey</li>
+  </ul>
